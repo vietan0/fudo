@@ -1,0 +1,68 @@
+.Bold {
+  font-weight: 700;
+}
+
+.LargeTitle {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: 0.36px;
+}
+
+.Title1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.36px;
+}
+
+.Title2 {
+  font-size: 1.375rem;
+  line-height: 1.25;
+  letter-spacing: -0.36px;
+}
+
+.Title3 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.36px;
+}
+
+.Headline {
+  font-size: 1rem;
+  line-height: 1.375;
+  letter-spacing: -0.41px;
+}
+
+.Callout {
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: -0.32px;
+}
+
+.Subheadline {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.33;
+  letter-spacing: -0.24px;
+}
+
+.Footnote {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  letter-spacing: -0.08px;
+}
+
+.Caption1 {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.Caption2 {
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  letter-spacing: 0.07px;
+}
+
+.BodyBold {
+  letter-spacing: -0.41px;
+}
