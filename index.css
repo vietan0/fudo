@@ -297,6 +297,15 @@ header {
   }
 }
 
+.scrollUp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
 nav {
   position: sticky;
   background-color: white;

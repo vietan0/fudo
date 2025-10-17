@@ -2,6 +2,7 @@ import renderSections from './renderSections.js';
 import renderSvg from './renderSvg.js';
 
 async function renderNav() {
+  const activeNavIndex = 0;
   const nav = document.createElement('nav');
   const navContainer = document.createElement('div');
 
@@ -14,13 +15,13 @@ async function renderNav() {
   ];
 
   const navItems = await Promise.all(
-    navItemInfos.map(async ({ iconSrc, text }) => {
+    navItemInfos.map(async ({ iconSrc, text }, i) => {
       const navItem = document.createElement('button');
       const iconContainer = document.createElement('div');
       iconContainer.className = 'icon-container'
       const icon = await renderSvg(`assets/icons/nav/${iconSrc}`);
       iconContainer.append(icon);
-
+      
       if (text === 'Giỏ hàng') {
         const productCounter = 3;
         const productCounterChip = document.createElement('span');
@@ -32,6 +33,10 @@ async function renderNav() {
       const itemName = document.createElement('span');
       itemName.className = 'Caption1 Bold';
       itemName.textContent = text;
+      if (i !== activeNavIndex) {
+        itemName.style.opacity = 0.4;
+        icon.style.opacity = 0.4;
+      }
       navItem.append(iconContainer, itemName);
       return navItem;
     })
@@ -110,7 +115,23 @@ async function renderShortcuts() {
   shortcuts.append(...shortcutItems);
 }
 
-renderNav();
-renderHeroSlider();
-renderShortcuts();
-renderSections();
+function renderScrollUp() {
+  const scrollUp = document.createElement('button');
+  scrollUp.className = 'scrollUp';
+  scrollUp.innerHTML = `
+    <p class="Caption1 Bold">Tiếp tục vuốt lên để đọc</p>
+    <img src="assets/icons/common/drag-up.svg" />
+  `;
+  scrollUp.onclick = () => scrollTo(0, 0);
+  document.querySelector('main').append(scrollUp);
+}
+
+async function main() {
+  await renderNav();
+  await renderHeroSlider();
+  await renderShortcuts();
+  await renderSections();
+  renderScrollUp();
+}
+
+main();
