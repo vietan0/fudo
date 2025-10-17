@@ -19,7 +19,7 @@ async function renderNav() {
       const navItem = document.createElement('button');
       const iconContainer = document.createElement('div');
       iconContainer.className = 'icon-container'
-      const icon = await renderSvg(`assets/icons/nav/${iconSrc}`);
+      const icon = await renderSvg(`assets/icons/${iconSrc}`);
       iconContainer.append(icon);
       
       if (text === 'Giỏ hàng') {
@@ -53,7 +53,7 @@ async function renderHeroSlider() {
     const active = i === activeIndex;
     const button = document.createElement('button');
     const svg = await renderSvg(
-      `assets/icons/common/${active ? 'dot-fill' : 'dot'}.svg`
+      `assets/icons/${active ? 'dot-fill' : 'dot'}.svg`
     );
     if (active) {
       svg.style.transform = 'scale(1.5)';
@@ -99,7 +99,7 @@ async function renderShortcuts() {
   const shortcutItems = await Promise.all(
     shortcutInfos.map(async ({ iconSrc, text }) => {
       const shortcutItem = document.createElement('button');
-      const icon = await renderSvg(`assets/icons/common/${iconSrc}`);
+      const icon = await renderSvg(`assets/icons/${iconSrc}`);
       for (const path of icon.children) {
         path.setAttribute('fill', '#599240');
       }
@@ -120,7 +120,7 @@ function renderScrollUp() {
   scrollUp.className = 'scrollUp';
   scrollUp.innerHTML = `
     <p class="Caption1 Bold">Tiếp tục vuốt lên để đọc</p>
-    <img src="assets/icons/common/drag-up.svg" />
+    <img src="assets/icons/drag-up.svg" />
   `;
   scrollUp.onclick = () => scrollTo(0, 0);
   document.querySelector('main').append(scrollUp);

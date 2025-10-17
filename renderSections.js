@@ -4,7 +4,7 @@ import { vouchers, hotProducts, categories, suggestions } from './data.js';
 async function renderSectionHeader(name, iconSrc) {
   const sectionHeader = document.createElement('div');
   sectionHeader.className = 'section-header';
-  const icon = await renderSvg(`assets/icons/common/${iconSrc}.svg`);
+  const icon = await renderSvg(`assets/icons/${iconSrc}.svg`);
   const sectionName = document.createElement('p');
   sectionName.className = 'Title1 Bold'
   sectionName.textContent = name;
@@ -104,7 +104,7 @@ function renderProduct(product) {
       <div class="product-footer">
         <p class="Headline Bold">${new Intl.NumberFormat().format(price)} đ</p>
         <button>
-          <img src="assets/icons/common/add-to-cart.svg" />
+          <img src="assets/icons/add-to-cart.svg" />
         </button>
       </div>
     </div>
