@@ -55,3 +55,52 @@ export const suggestions = [
     combo: true,
   },
 ];
+
+export const productDetail = {
+  name: 'Thùng 20 gói khăn giấy tre không tẩy trắng FUDO TISSUEPack',
+  price: {
+    original: 500000,
+    final: 380000,
+  },
+  images: [
+    'assets/images/product-detail-1.png',
+    'assets/images/product-detail-1.png',
+    'assets/images/product-detail-1.png',
+  ],
+  tags: ['Thùng 20 gói', 'Túi lớn 4 gói', 'Gói đơn 130 tờ'],
+  shortDesc:
+    'Khăn giấy làm từ 100% bột tre tự nhiên, kết cấu siêu dai mà vẫn mịn màng, phù hợp với làn da nhạy cảm.',
+  stock: 39,
+  star: 5,
+  freeship: 'Freeship từ 149k',
+};
+
+export const review = {
+  username: 'Vũ Duy',
+  star: 5,
+  date: '20.10.2023',
+  body: 'Chất lượng sản phẩm:tot Giao hàng nhanh, đóng gói cẩn thận, giấy dai, sản phẩm dùng tốt.',
+  images: [
+    'assets/images/review-1.png',
+    'assets/images/review-2.png',
+    'assets/images/review-3.png',
+  ],
+  likes: 23,
+};
+
+export const productDetailSuggestions = [
+  {
+    title: 'TISSUEPack - Khăn giấy rút từ tre siêu thấm',
+    desc: '',
+    price: '80000',
+    imgSrc: 'assets/images/product-1.png',
+    combo: false,
+  },
+  {
+    title: 'TISSUEPack - Khăn giấy rút từ tre siêu thấm',
+    desc: '',
+    price: '80000',
+    imgSrc: 'assets/images/product-1.png',
+    combo: false,
+  },
+];

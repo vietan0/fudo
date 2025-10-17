@@ -1,5 +1,12 @@
 import renderSections from './renderSections.js';
+import renderSlider from './renderSlider.js';
 import renderSvg from './renderSvg.js';
+
+const heroImgSrcs = [
+  'assets/images/hero-1.png',
+  'assets/images/hero-2.png',
+  'assets/images/hero-3.png',
+];
 
 async function renderNav() {
   const activeNavIndex = 0;
@@ -47,47 +54,6 @@ async function renderNav() {
   document.getElementById('root').append(nav);
 }
 
-async function renderHeroSlider() {
-  let activeIndex = 0;
-  async function renderSlideDot(i) {
-    const active = i === activeIndex;
-    const button = document.createElement('button');
-    const svg = await renderSvg(
-      `assets/icons/${active ? 'dot-fill' : 'dot'}.svg`
-    );
-    if (active) {
-      svg.style.transform = 'scale(1.5)';
-    }
-    const path = svg.firstElementChild;
-    path.setAttribute('fill', 'white');
-
-    button.append(svg);
-    button.onclick = () => {
-      activeIndex = i;
-    };
-    return button;
-  }
-
-  const imgContainer = document.getElementById('img-container');
-  const heroImgSrcs = ['hero-1.png', 'hero-2.png', 'hero-3.png'];
-
-  const heroImgs = heroImgSrcs.map((src) => {
-    const img = document.createElement('img');
-    img.src = `assets/images/${src}`;
-    img.alt = src;
-
-    return img;
-  });
-
-  imgContainer.append(...heroImgs);
-
-  const slideDotContainer = document.getElementById('slideDot-container');
-  const slideDots = await Promise.all(
-    heroImgSrcs.map((_, i) => renderSlideDot(i))
-  );
-  slideDotContainer.append(...slideDots);
-}
-
 async function renderShortcuts() {
   const shortcuts = document.getElementById('shortcuts');
   const shortcutInfos = [
@@ -128,7 +94,8 @@ function renderScrollUp() {
 
 async function main() {
   await renderNav();
-  await renderHeroSlider();
+  const heroSlider = await renderSlider(heroImgSrcs);
+  document.getElementById('welcome').insertAdjacentElement('afterend', heroSlider);
   await renderShortcuts();
   await renderSections();
   renderScrollUp();

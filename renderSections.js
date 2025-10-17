@@ -85,9 +85,10 @@ function renderCategory(category) {
   return categoryElem;
 }
 
-function renderProduct(product) {
+export function renderProduct(product) {
   const { title, desc, price, imgSrc, combo } = product;
-  const productElem = document.createElement('div');
+  const productElem = document.createElement('a');
+  productElem.href = 'productDetail.html';
   productElem.className = 'product-vert';
   productElem.innerHTML = `
     <img src="${imgSrc}" />
